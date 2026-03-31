@@ -12,7 +12,7 @@ public class Main {
         s1.printInfo();
 
         Teacher t1 = new Teacher("김준일", 33);
-        t1.월급 = t1.월급계산(200000);
+        t1.set월급(200000);
 
         User user = new User("korit001");
         user.setPassword("1111");

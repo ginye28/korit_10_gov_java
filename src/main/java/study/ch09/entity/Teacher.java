@@ -7,6 +7,30 @@ public class Teacher {
 
     public Teacher() {}
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int get월급() {
+        return 월급;
+    }
+
+    public void set월급(int 월급) {
+        this.월급 = 월급;
+    }
+
     public Teacher(String name, int age) {
         this.name = name;
         this.age = age;
