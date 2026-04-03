@@ -15,7 +15,7 @@ class MM {
         BB b = new BB();
         AA b2 = new BB();
         AA c = new AA(); {
-            
+
         };
         AA cc = new CC();
         AA ccc = new BB(); {
