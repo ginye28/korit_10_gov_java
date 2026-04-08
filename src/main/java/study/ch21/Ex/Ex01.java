@@ -10,7 +10,7 @@ public class Ex01 {
             int[] arr = {1, 2, 3};
             System.out.println(arr[5]);
             System.out.println("정상 실행");
-        } catch (NullPointerException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {        //Array인덱스를 나오는 exception
             System.out.println("오류가 발생했습니다" + e.getMessage());
         } finally {
             System.out.println("프로그램 종료");
