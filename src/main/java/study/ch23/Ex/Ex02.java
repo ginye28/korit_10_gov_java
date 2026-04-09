@@ -10,10 +10,9 @@ import java.util.stream.Stream;
 
 public class Ex02 {
     public static void main(String[] args) {
-        List<Integer> r = new ArrayList<>();
         List<Integer> result = Stream.of(1, 2, 3, 4, 5)
-                .filter(r *= result)
+                .map(n -> n * n)
                 .toList();
-        System.out.println(r);
+        System.out.println(result);
     }
 }

@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class Ex01 {
     public static void main(String[] args) {
         List<Integer> result = Stream.of(5, 12, 3, 8, 20, 1)
-                .filter(n -> n >= 10)   //filter
+                .filter(n -> n >= 10)   //filter 걸러내다
                 .toList();
         System.out.println(result);
     }
