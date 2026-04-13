@@ -24,7 +24,18 @@ public class Ex06 {
                 Map.of("code", 1002, "name", "마우스", "price", 35000),
                 Map.of("code", 1003, "name", "키보드", "price", 55000)
         );
-        List<String>
+
+        //새리스트를 만들어서 기입
+        List<Product> products = productMaps.stream()
+                .map(m -> new Product(
+                        (Integer) m.get("code"),
+                        (String) m.get("name"),
+                        (Integer) m.get("price")
+                ))
+                .toList();
+        System.out.println(products);
+
+
     }
 }
 
