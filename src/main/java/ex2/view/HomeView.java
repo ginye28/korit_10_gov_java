@@ -7,16 +7,20 @@ import ex2.util.Input;
 
 import java.util.Map;
 
-public class HomeView implements View{
+public class HomeView implements View{     //다른 View들과 간편한 구분
+
+    @Override
     public void render() {
-        homeMenu();
-        String cmd = Input.nextLine(); //static
+        homeMenu();     //사용자에게 메뉴를 보여줌
+        String cmd = Input.nextLine(); //static       //입력을 기다림
         ResponseDto<Map<String, Object>> response = Controller.homeController(cmd);
-        if (response.getStatus() == 100) {
+        //사용자가 입력한 값이랑 컨트롤러 값이랑 같은지 확인 후 그에 맞는 숫자값(100,400 등)을 받음
+
+        if (response.getStatus() == 100) {  //100이면 종료
             Ex2Application.running = false;
             return;
         }
-        if (response.getStatus() != 200) {
+        if (response.getStatus() != 200) {  //200이 아니면 홈에러
             homeError(response.getData().get("message").toString());
             return;
         }

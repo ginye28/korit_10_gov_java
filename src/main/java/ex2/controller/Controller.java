@@ -1,6 +1,6 @@
 package ex2.controller;
 
-import ex2.AccountRepositoryImpl;
+import ex2.repositrory.AccountRepositoryImpl;
 import ex2.dto.ResponseDto;
 import ex2.entity.Account;
 import ex2.router.RouterPath;
@@ -13,7 +13,6 @@ import java.util.Map;
 public class Controller {
     public static ResponseDto<Map<String, Object>> homeController(String selectedMenu) {
         ResponseDto<Map<String, Object>> responseDto = new ResponseDto<>(200, new HashMap<>());
-        Map<String, Object> errorMap = null;
         try {
             if ("1".equals(selectedMenu)) {
                 RouterPath.current = Routes.ACCOUNT.name();
@@ -23,16 +22,18 @@ public class Controller {
             } else if ("3".equals(selectedMenu)) {
 
             } else if ("4".equals(selectedMenu)) {
-
+                throw new RuntimeException("해당 입력 값은 유효하지 않습니다. 다시 입력하세요.");
             } else if ("5".equals(selectedMenu)) {
-
+                throw new RuntimeException("해당 입력 값은 유효하지 않습니다. 다시 입력하세요.");
             } else if ("6".equals(selectedMenu)) {
+                throw new RuntimeException("해당 입력 값은 유효하지 않습니다. 다시 입력하세요.");
+            } else if ("q".equals(selectedMenu)) {
                 responseDto.setStatus(100);
             } else {
                 throw new RuntimeException("해당 입력 값은 유효하지 않습니다. 다시 입력하세요.");
             }
         } catch (RuntimeException e) {
-            errorMap = Map.of(
+            Map<String, Object> errorMap = Map.of(
                     "message", e.getMessage()
             );
             responseDto = new ResponseDto<>(400, errorMap);
@@ -52,7 +53,7 @@ public class Controller {
             System.out.println("[잔액]");
             int balance = Integer.parseInt(Input.nextLine());
             Account newAccount = new Account(0, accountNo, owner, balance);
-            AccountRepositoryImpl.ACCOUNT_REPOSITORY.save(newAccount);
+            Account savedAccount = AccountRepositoryImpl.ACCOUNT_REPOSITORY.save(newAccount);
             System.out.println("계좌생성완료 - 계좌정보");
             System.out.println(savedAccount);
         } else if ("2".equals(selectedMenu)) {

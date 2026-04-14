@@ -7,12 +7,11 @@ import ex3.Ex3Application;
 
 import java.util.Map;
 
-public class HomeView implements View {     //다른 View들과 간편한 구분
+public class HomeView implements View {
     public void render() {      //override
-        homeMenu();     //사용자에게 메뉴를 보여줌
-        String cmd = Input.nextLine();      //입력을 기다림
+        homeMenu();
+        String cmd = Input.nextLine();
         ResponseDto<Map<String, Object>> response = Controller.homeController(cmd);
-        //사용자가 입력한 값이랑 컨트롤러 값이랑 같은지 확인 후 그에 맞는 숫자값(100,400 등)을 받음
         if (response.getStatus() == 100) {
             Ex3Application.running = false;
             return;

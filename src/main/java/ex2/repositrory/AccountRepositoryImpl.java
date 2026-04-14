@@ -1,7 +1,6 @@
-package ex2;
+package ex2.repositrory;
 
 import ex2.entity.Account;
-import ex2.repositrory.AccountRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +19,8 @@ public enum AccountRepositoryImpl implements AccountRepository {
     @Override
     public Account save(Account account) {
 
-        findById(account.getId()).ifPresentOrElse(foundAccount ->
-            foundAccount.update(account),
+        findById(account.getId()).ifPresentOrElse(
+            foundAccount -> foundAccount.update(account),
             () -> {
                 account.setId(++autoincreamentId);
                 accountList.add(account);
