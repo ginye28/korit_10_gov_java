@@ -10,7 +10,7 @@ import java.util.Map;
 public class HomeView implements View{
     public void render() {
         homeMenu();
-        String cmd = Input.nextLine();
+        String cmd = Input.nextLine(); //static
         ResponseDto<Map<String, Object>> response = Controller.homeController(cmd);
         if (response.getStatus() == 100) {
             Ex2Application.running = false;

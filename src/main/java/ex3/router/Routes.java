@@ -1,7 +1,7 @@
-package ex2.router;
+package ex3.router;
 
-import ex2.view.HomeView;
-import ex2.view.View;
+import ex3.view.HomeView;
+import ex3.view.View;
 import lombok.Getter;
 
 public enum Routes {

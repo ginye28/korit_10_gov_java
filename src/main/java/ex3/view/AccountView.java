@@ -1,20 +1,17 @@
-package ex2.view;
+package ex3.view;
 
-import ex2.controller.Controller;
-import ex2.dto.ResponseDto;
-import ex2.router.RouterPath;
-import ex2.router.Routes;
-import ex2.util.Input;
+import ex3.router.RouterPath;
+import ex3.util.Input;
+import ex3.router.Routes;
 
 public class AccountView implements View {
-
     @Override
     public void render() {
         accountMenu();
         String cmd = Input.nextLine();
-        ResponseDto<?> response = Controller.accountController(cmd);
-        if (response.getStatus() == 100) {
+        if ("b".equals(cmd)) {
             RouterPath.current = Routes.HOME.name();
+            return;
         }
     }
 
