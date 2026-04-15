@@ -1,12 +1,17 @@
 package ex2.router;
 
 import ex2.view.AccountView;
+import ex2.view.CreatAccountView;
 import ex2.view.HomeView;
 import ex2.view.View;
 import lombok.Getter;
 
 public enum Routes {
-    HOME(new HomeView()), ACCOUNT(new AccountView()), DEPOSIT(null), WITHDRAWAL(null);
+    HOME(new HomeView()),
+    ACCOUNT(new AccountView()),
+    CREAT_ACCOUNT(new CreatAccountView()),
+    DEPOSIT(null),
+    WITHDRAWAL(null);
 
     @Getter
     private View view;

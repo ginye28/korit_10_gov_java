@@ -9,5 +9,5 @@ public interface AccountRepository {
     Account save(Account account);
     Optional<Account> findById(int Id);
     Optional<Account> findByAccountNo(String accountNo);
-    List<Optional<Account>> findAll();
+    List<Account> findAll();
 }
